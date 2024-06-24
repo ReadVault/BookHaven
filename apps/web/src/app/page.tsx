@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Card } from "@repo/ui/card";
-import { signIn } from "@repo/auth/auth";
+import { SignIn } from "./signin";
 
 function Gradient({
   conic,
@@ -47,18 +47,7 @@ const LINKS = [
 export default function Page(): JSX.Element {
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
-      <div className="z-10 items-center justify-between w-full max-w-5xl font-mono text-sm lg:flex">
-        <form
-          action={async () => {
-            "use server";
-            await signIn("iam.inuk.blog");
-          }}
-        >
-          <button className="fixed top-0 left-0 flex justify-center w-full px-4 pt-8 pb-6 border-b bg-gradient-to-b backdrop-blur-2xl border-neutral-800 bg-zinc-800/30 from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:bg-zinc-800/30">
-            Login
-          </button>
-        </form>
-      </div>
+      <SignIn />
 
       <div className="relative flex place-items-center ">
         <div className="font-sans w-auto pb-16 pt-[48px] md:pb-24 lg:pb-32 md:pt-16 lg:pt-20 flex justify-between gap-8 items-center flex-col relative z-0">
